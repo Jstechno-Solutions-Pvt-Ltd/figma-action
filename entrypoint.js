@@ -50,9 +50,9 @@ client.file(fileId)
         const {description = '', key} = data.components[c.id]
         const {width, height} = c.absoluteBoundingBox
         const filename = `${sanitize(name).toLowerCase()}.${options.format}`;
-
+        const ctype = "frames";
         components[id] = {
-          'frames',
+          ctype,
           name,
           filename,
           id,
@@ -67,9 +67,10 @@ client.file(fileId)
         const {description = '', key} = data.components[c.id]
         const {width, height} = c.absoluteBoundingBox
         const filename = `${sanitize(name).toLowerCase()}.${options.format}`;
+        const ctype = "components";
 
         components[id] = {
-          'components',
+          ctype,
           name,
           filename,
           id,
