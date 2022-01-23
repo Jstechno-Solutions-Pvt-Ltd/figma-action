@@ -130,6 +130,7 @@ client.file(fileId)
       })
       .then(response => {
         return ensureDir(join(options.outputDir, options.format))
+          .then(() =>  console.log(join(options.outputDir, options.format,component.type)))
           .then(() =>  ensureDir(join(options.outputDir, options.format,component.type)))
           .then(() => writeFile(join(options.outputDir, options.format,component.type, component.filename), response.body, (options.format === 'svg' ? 'utf8' : 'binary')))
       })
