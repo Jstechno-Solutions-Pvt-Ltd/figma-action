@@ -52,6 +52,24 @@ client.file(fileId)
         const filename = `${sanitize(name).toLowerCase()}.${options.format}`;
 
         components[id] = {
+          'frames',
+          name,
+          filename,
+          id,
+          key,
+          file: fileId,
+          description,
+          width,
+          height
+        }
+      } else if (c.type === 'COMPONENT') {
+        const {name, id} = c
+        const {description = '', key} = data.components[c.id]
+        const {width, height} = c.absoluteBoundingBox
+        const filename = `${sanitize(name).toLowerCase()}.${options.format}`;
+
+        components[id] = {
+          'components',
           name,
           filename,
           id,
@@ -110,7 +128,7 @@ client.file(fileId)
       })
       .then(response => {
         return ensureDir(join(options.outputDir, options.format))
-          .then(() => writeFile(join(options.outputDir, options.format, component.filename), response.body, (options.format === 'svg' ? 'utf8' : 'binary')))
+          .then(() => writeFile(join(options.outputDir+'/'+component.type, options.format, component.filename), response.body, (options.format === 'svg' ? 'utf8' : 'binary')))
       })
     }))
   })
