@@ -89,7 +89,7 @@ client.file(fileId)
 
     data.document.children.forEach(check)
     if (Object.values(components).length === 0) {
-      throw Error('No components found!')
+     // throw Error('No components found!')
     }
     console.log(`${Object.values(components).length} components found in the figma file`)
     return components
