@@ -47,7 +47,8 @@ client.file(fileId)
     function check(c) {
       if (c.type === 'FRAME') {
         const {name, id} = c
-        const {description = '', key} = data.components[c.id]
+        const description = ''
+        const key = ''
         const {width, height} = c.absoluteBoundingBox
         const filename = `${sanitize(name).toLowerCase()}.${options.format}`;
         const ctype = "frames";
