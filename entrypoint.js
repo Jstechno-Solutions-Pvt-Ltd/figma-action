@@ -45,7 +45,7 @@ client.file(fileId)
     const components = {}
 
     function check(c) {
-      if (c.type === 'COMPONENT') {
+      if (c.type === 'FRAME') {
         const {name, id} = c
         const {description = '', key} = data.components[c.id]
         const {width, height} = c.absoluteBoundingBox
